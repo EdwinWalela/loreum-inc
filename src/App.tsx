@@ -4,7 +4,7 @@ import NavBar from './Layout/Navbar';
 
 const App = () => {
 	return (
-		<div className="md:flex">
+		<div className="md:flex h-screen">
 			<NavBar />
 			<LandingPage />
 		</div>
