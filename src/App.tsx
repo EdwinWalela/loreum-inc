@@ -5,6 +5,7 @@ import AnalysisPage from './pages/Analysis';
 import SettingsPage from './pages/Settings';
 import NavBar from './Layout/Navbar';
 import Header from './Layout/Header';
+import NotFoundPage from './pages/NotFound';
 
 const App = () => {
 	return (
@@ -16,6 +17,7 @@ const App = () => {
 					<Route path="/" element={<LandingPage />} />
 					<Route path="/analysis" element={<AnalysisPage />} />
 					<Route path="/settings" element={<SettingsPage />} />
+					<Route path="*" element={<NotFoundPage />} />
 				</Routes>
 			</div>
 		</div>
