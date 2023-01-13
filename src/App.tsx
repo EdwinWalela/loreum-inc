@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import LandingPage from './pages/Landing';
+import AnalysisPage from './pages/Analysis';
+import SettingsPage from './pages/Settings';
 import NavBar from './Layout/Navbar';
 import Header from './Layout/Header';
 
@@ -12,6 +14,8 @@ const App = () => {
 				<Header />
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
+					<Route path="/analysis" element={<AnalysisPage />} />
+					<Route path="/settings" element={<SettingsPage />} />
 				</Routes>
 			</div>
 		</div>
