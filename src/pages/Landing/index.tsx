@@ -1,7 +1,9 @@
+import SearchBar from './searchBar';
+
 const LandingPage = () => {
 	return (
-		<div className="">
-			<h1>Landing Page</h1>
+		<div className="bg-gray-200 h-screen">
+			<SearchBar />
 		</div>
 	);
 };

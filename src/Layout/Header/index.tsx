@@ -7,7 +7,7 @@ const Header = () => {
 			<div className="md:float-right md:flex items-center hidden md:block">
 				<img src="https://picsum.photos/200" className="w-8 h-8 rounded-full mr-4" />
 				<div className="">
-					<p className="text-sm text-blue-500">John Doe</p>
+					<p className="text-sm text-blue-700">John Doe</p>
 					<p className="text-xs">Admin</p>
 				</div>
 			</div>
