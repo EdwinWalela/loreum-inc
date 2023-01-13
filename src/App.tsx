@@ -15,8 +15,8 @@ const App = () => {
 			<div className="md:w-4/5">
 				<Header />
 				<Routes>
-					<Route path="/" element={<LandingPage />} />
-					<Route path="/user/edit/:id" element={<EditUserPage />} />
+					<Route path="/people" element={<LandingPage />} />
+					<Route path="/people/edit/:id" element={<EditUserPage />} />
 					{/* <Route path="/analysis" element={<AnalysisPage />} /> */}
 					{/* <Route path="/settings" element={<SettingsPage />} /> */}
 					<Route path="*" element={<NotFoundPage />} />

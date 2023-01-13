@@ -11,7 +11,7 @@ const NavItem = (props: { type: string }) => {
 		case 'people':
 			icon = profileIcon;
 			title = 'People Management';
-			link = '/';
+			link = '/people';
 			break;
 		case 'analysis':
 			icon = graphIcon;
