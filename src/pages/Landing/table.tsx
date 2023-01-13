@@ -3,7 +3,7 @@ import TableRow from './tableRow';
 
 const Table = () => {
 	return (
-		<table className="md:w-11/12 mx-auto my-8  text-left shadow-md">
+		<table className="md:w-11/12 md:mx-auto mx-5  my-8  text-left shadow-md">
 			<TableHeader />
 			<TableRow />
 			<TableRow />
