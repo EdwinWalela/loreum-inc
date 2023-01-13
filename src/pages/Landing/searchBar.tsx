@@ -2,7 +2,7 @@ import searchIcon from '../../assets/search.svg';
 
 const SearchBar = () => {
 	return (
-		<div className="md:flex justify-end px-4">
+		<div className="md:flex justify-end md:pr-10 p-6 md:p-0">
 			<div className="relative mt-1 rounded-md shadow-sm clear">
 				<div className="pointer-events-none absolute inset-y-0 left-0 md:top-4 md:bottom-0 bottom-14 flex items-center pl-3">
 					<img src={searchIcon} className="w-4 h-4" />
