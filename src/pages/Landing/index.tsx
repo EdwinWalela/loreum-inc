@@ -3,7 +3,7 @@ import UserTable from './table';
 
 const LandingPage = () => {
 	return (
-		<div className="bg-gray-200 h-screen">
+		<div className="bg-gray-200 h-full">
 			<SearchBar />
 			<UserTable />
 		</div>
