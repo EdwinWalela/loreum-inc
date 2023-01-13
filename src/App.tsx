@@ -6,6 +6,7 @@ import SettingsPage from './pages/Settings';
 import NavBar from './Layout/Navbar';
 import Header from './Layout/Header';
 import NotFoundPage from './pages/NotFound';
+import EditUserPage from './pages/EditUser';
 
 const App = () => {
 	return (
@@ -15,8 +16,9 @@ const App = () => {
 				<Header />
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
-					<Route path="/analysis" element={<AnalysisPage />} />
-					<Route path="/settings" element={<SettingsPage />} />
+					<Route path="/user/edit/:id" element={<EditUserPage />} />
+					{/* <Route path="/analysis" element={<AnalysisPage />} /> */}
+					{/* <Route path="/settings" element={<SettingsPage />} /> */}
 					<Route path="*" element={<NotFoundPage />} />
 				</Routes>
 			</div>
