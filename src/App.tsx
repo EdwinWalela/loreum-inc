@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import LandingPage from './pages/Landing';
 import NavBar from './Layout/Navbar';
@@ -9,7 +10,9 @@ const App = () => {
 			<NavBar />
 			<div className="md:w-4/5">
 				<Header />
-				<LandingPage />
+				<Routes>
+					<Route path="/" element={<LandingPage />} />
+				</Routes>
 			</div>
 		</div>
 	);
