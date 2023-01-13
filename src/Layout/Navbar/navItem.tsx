@@ -30,8 +30,15 @@ const NavItem = (props: { type: string }) => {
 	}
 
 	return (
-		<NavLink to={link}>
-			<li className="md:px-8 py-3 inline-block md:block md:mx-0 mx-10 md:mb-4 cursor-pointer md:hover:border-l-4 transition-all ease-in-out">
+		<NavLink
+			to={link}
+			className={({ isActive }) => {
+				return isActive
+					? 'md:px-8 py-3 inline-block md:block md:mx-0 mx-10 md:mb-4 cursor-pointer md:border-l-4 transition-all ease-in-out'
+					: 'md:px-8 py-3 inline-block md:block md:mx-0 mx-10 md:mb-4 cursor-pointer md:hover:border-l-4 transition-all ease-in-out';
+			}}
+		>
+			<li>
 				<div className="flex items-center">
 					<img src={icon} className="w-6 mr-2" />
 					<p className="text-sm hidden md:block">{title}</p>
