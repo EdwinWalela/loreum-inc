@@ -20,7 +20,7 @@ const Header = () => {
 	}
 
 	return (
-		<div className="md:flow-root shadow-md py-3 px-8">
+		<div className="md:flow-root shadow-md py-3 px-8 bg-white">
 			<h1 className="md:float-left font-medium text-lg text-center md:text-left">{title}</h1>
 			<div className="md:float-right md:flex items-center hidden md:block">
 				<img src="https://picsum.photos/200" className="w-8 h-8 rounded-full mr-4" />
