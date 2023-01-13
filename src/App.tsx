@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import './App.css';
+import LandingPage from './pages/Landing';
 
-function App() {
+const App = () => {
 	return (
 		<div className="App">
-			<h1 className="text-center">Hello World</h1>
+			<LandingPage />
 		</div>
 	);
-}
+};
 
 export default App;
