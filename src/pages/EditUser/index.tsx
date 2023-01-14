@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const EditUserPage = () => {
 	const { id } = useParams();
+
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [occupation, setOccupation] = useState('');
+	const [bio, setBio] = useState('');
 
 	return (
 		<div className="bg-gray-200 py-8 ">
