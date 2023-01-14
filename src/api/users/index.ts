@@ -23,6 +23,25 @@ const getAllUsers = async (): Promise<User[]> => {
 	return users;
 };
 
+const getUserById = async (id: string): Promise<User> => {
+	try {
+		const response = await axios.get(`${BASE_URL}/${id}`, { headers: { 'x-apikey': API_KEY } });
+		let user: User = {
+			id: response.data._id,
+			name: response.data.name,
+			email: response.data.email,
+			occupation: response.data.occupation,
+			bio: response.data.bio,
+		};
+		return user;
+	} catch (error: any) {
+		throw new Error(`Failed to fetch user: ${error.message}`);
+	}
+};
+
+const editUser = () => {};
+
 export default {
 	getAllUsers,
+	getUserById,
 };

@@ -1,7 +1,6 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { User } from '../../common/types';
 import api from '../../api/users/index';
-import users from '../../api/users/index';
 
 interface userState {
 	users: User[];

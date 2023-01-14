@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getUserById } from './editUserslice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 const EditUserPage = () => {
 	const { id } = useParams();
+	const user = useAppSelector((state) => state.editUser.user);
 
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [occupation, setOccupation] = useState('');
-	const [bio, setBio] = useState('');
+	const [name, setName] = useState(user.name);
+	const [email, setEmail] = useState(user.email);
+	const [occupation, setOccupation] = useState(user.occupation);
+	const [bio, setBio] = useState(user.bio);
+
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(getUserById(id ? id : ''));
+	}, []);
 
 	return (
 		<div className="bg-gray-200 py-8 ">
@@ -23,9 +32,8 @@ const EditUserPage = () => {
 									Full name
 								</label>
 								<input
-									type="email"
-									name="email"
-									id="email"
+									type="text"
+									value={name}
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 									placeholder="name@company.com"
 									required={true}
@@ -40,8 +48,7 @@ const EditUserPage = () => {
 								</label>
 								<input
 									type="email"
-									name="email"
-									id="email"
+									value={email}
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 									placeholder="name@company.com"
 									required={true}
@@ -55,9 +62,8 @@ const EditUserPage = () => {
 									Occupation
 								</label>
 								<input
-									type="email"
-									name="email"
-									id="email"
+									type="text"
+									value={occupation}
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 									placeholder="name@company.com"
 									required={true}
@@ -71,8 +77,7 @@ const EditUserPage = () => {
 									Bio
 								</label>
 								<textarea
-									name="email"
-									id="email"
+									value={bio}
 									rows={4}
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 									placeholder="name@company.com"
