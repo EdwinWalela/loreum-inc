@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import DecisionPage from './pages/Decision';
 import LandingPage from './pages/Landing';
 import AnalysisPage from './pages/Analysis';
 import SettingsPage from './pages/Settings';
@@ -15,6 +16,7 @@ const App = () => {
 			<div className="md:w-4/5 overflow-y-scroll">
 				<Header />
 				<Routes>
+					<Route path="/" element={<DecisionPage />} />
 					<Route path="/people" element={<LandingPage />} />
 					<Route path="/people/edit/:id" element={<EditUserPage />} />
 					{/* <Route path="/analysis" element={<AnalysisPage />} /> */}
