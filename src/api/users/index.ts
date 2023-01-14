@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { User } from '../../common/types';
-const BASE_URL = import.meta.env.API_BASE_URL;
-const API_KEY = import.meta.env.API_KEY;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getAllUsers = async (): Promise<User[]> => {
 	let users: User[] = [];

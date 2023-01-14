@@ -33,10 +33,10 @@ export const userSlice = createSlice({
 			state.isLoading = true;
 		});
 		builder.addCase(getAllUsers.fulfilled, (state, action) => {
-			state.isLoading = false;
+			state.isLoading = true;
 			state.hasError = false;
 			state.errorMessage = '';
-			state.users = action.payload;
+			state.users = [];
 		});
 		builder.addCase(getAllUsers.rejected, (state, action) => {
 			state.isLoading = false;
