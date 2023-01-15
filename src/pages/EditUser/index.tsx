@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { getUserById, updateUser } from './editUserslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import Loader from '../../common/loader';
-import SuccessModal from './modal';
+import backIcon from '../../assets/back.svg';
 import Modal from './modal';
 
 const EditUserPage = () => {
@@ -59,6 +59,7 @@ const EditUserPage = () => {
 	}
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
+		setUpdated(false);
 		dispatch(
 			updateUser({
 				id: String(id),
@@ -79,6 +80,14 @@ const EditUserPage = () => {
 							<Loader message="Loading" />
 						) : (
 							<>
+								<NavLink
+									type="submit"
+									to="/"
+									className=" bg-blue-500 transition-all ease-in-out text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm pl-2 pr-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+								>
+									<img src={backIcon} className="w-4 h-4 inline mr-2" />
+									Back
+								</NavLink>
 								{state.hasError && <Modal isSuccess={false} />}
 								{state.updateSuccess && <Modal isSuccess={true} />}
 								<form

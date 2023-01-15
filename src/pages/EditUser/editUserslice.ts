@@ -43,6 +43,7 @@ export const editUserSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(getUserById.pending, (state, action) => {
+			state.updateSuccess = false;
 			state.isLoading = true;
 			state.errorMessage = '';
 			state.hasError = false;
