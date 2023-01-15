@@ -48,6 +48,12 @@ export const userSlice = createSlice({
 				profileModalOpen: !state.profileModalOpen,
 			};
 		},
+		closeProfileModal: (state) => {
+			return {
+				...state,
+				profileModalOpen: false,
+			};
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getAllUsers.pending, (state, action) => {
@@ -69,5 +75,5 @@ export const userSlice = createSlice({
 	},
 });
 
-export const { searchUsers, toggleProfileModal } = userSlice.actions;
+export const { searchUsers, toggleProfileModal, closeProfileModal } = userSlice.actions;
 export default userSlice.reducer;

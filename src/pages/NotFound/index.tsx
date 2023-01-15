@@ -1,7 +1,15 @@
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../store/hooks';
+import { closeProfileModal } from '../Landing/userSlice';
+
 import notfoundIcon from '../../assets/not-found.svg';
 
 const NotFoundPage = (props: { isPage: boolean }) => {
+	const dispatch = useAppDispatch();
+	useEffect(() => {
+		dispatch(closeProfileModal());
+	}, []);
 	return (
 		<div className="">
 			<img src={notfoundIcon} className="w-1/6 h-1/6 m-auto mt-20" />
