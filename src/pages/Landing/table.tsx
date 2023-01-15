@@ -30,9 +30,11 @@ const Table = () => {
 			<>
 				<table className="md:w-11/12 md:mx-auto mx-5  my-8 mb-16  text-left shadow-md ">
 					<TableHeader />
-					{state.users.map((user: User) => (
-						<TableRow user={user} />
-					))}
+					<tbody>
+						{state.users.map((user: User, i: number) => (
+							<TableRow user={user} key={i} />
+						))}
+					</tbody>
 				</table>
 				{state.users.length == 0 && <NotFoundPage isPage={false} />}
 			</>
