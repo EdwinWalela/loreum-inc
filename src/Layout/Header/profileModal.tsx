@@ -6,7 +6,7 @@ import { closeProfileModal } from '../../pages/Landing/userSlice';
 const ProfileModal = () => {
 	const dispatch = useAppDispatch();
 	return (
-		<div className="absolute text-center right-10 top-16 px-10 py-5 w-1/4 z-10 h-80 bg-slate-700 rounded-md shadow-lg text-white">
+		<div className="absolute text-center right-6 top-20 px-10 py-5 w-1/4 z-10 h-80 bg-slate-700 rounded-md shadow-lg text-white">
 			<img
 				src={closeIcon}
 				className="absolute w-6 h-6 left-64 cursor-pointer"
