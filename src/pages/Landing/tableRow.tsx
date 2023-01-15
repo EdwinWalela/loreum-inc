@@ -7,9 +7,18 @@ import { Link } from 'react-router-dom';
 const TableRow = (props: { user: User }) => {
 	return (
 		<tr className=" even:bg-white odd:bg-gray-110">
-			<td className="w-1/4 px-6 py-2 text-sm md:text-md">{props.user.name}</td>
-			<td className="w-1/4 px-6 py-2 text-sm md:text-md">{props.user.email}</td>
-			<td className="w-1/4 px-6 py-2 text-sm md:text-md">{props.user.occupation}</td>
+			<td style={{ maxWidth: 100 }} className="w-1/4 px-6 py-2 text-sm md:text-md">
+				{props.user.name}
+			</td>
+			<td className="w-1/4 hidden md:block md:px-6 py-2 text-sm md:text-md overflow-ellipsis">
+				{props.user.email}
+			</td>
+			<td className="w-1/4 md:hidden block md:px-6 py-2 text-sm md:text-md overflow-ellipsis">
+				{props.user.email.length > 15 ? props.user.email.substring(0, 15) : props.user.email}
+			</td>
+			<td style={{ maxWidth: 100 }} className="w-1/4 px-6 py-2 text-sm md:text-md">
+				{props.user.occupation}
+			</td>
 			<td className="w-1/11 px-6 py-2 text-sm max-w-xs md:text-md">
 				<a href={`mailto:${props.user.email}`}>
 					<img src={mailIcon} className="w-5 h-4 inline-block mr-4 cursor-pointer" />
