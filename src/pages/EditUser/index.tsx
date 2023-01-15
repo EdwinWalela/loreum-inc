@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getUserById } from './editUserslice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -6,14 +6,12 @@ import Loader from '../../common/loader';
 
 const EditUserPage = () => {
 	const { id } = useParams();
+	const dispatch = useAppDispatch();
 	const state = useAppSelector((state) => state.editUser);
-
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [occupation, setOccupation] = useState('');
 	const [bio, setBio] = useState('');
-
-	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		if (id) {
@@ -30,6 +28,19 @@ const EditUserPage = () => {
 		setEmail(state.user.email);
 		setOccupation(state.user.occupation);
 		setBio(state.user.bio);
+	}
+
+	function handleNameChange(e: React.FormEvent<HTMLInputElement>) {
+		setName(e.currentTarget.value);
+	}
+	function handleEmailChange(e: React.FormEvent<HTMLInputElement>) {
+		setEmail(e.currentTarget.value);
+	}
+	function handleOccupationChange(e: React.FormEvent<HTMLInputElement>) {
+		setOccupation(e.currentTarget.value);
+	}
+	function handleBioChange(e: React.FormEvent<HTMLTextAreaElement>) {
+		setBio(e.currentTarget.value);
 	}
 
 	return (
@@ -51,8 +62,9 @@ const EditUserPage = () => {
 									<input
 										type="text"
 										value={name}
+										onChange={handleNameChange}
 										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-										placeholder="name@company.com"
+										placeholder="John Doe"
 										required={true}
 									/>
 								</div>
@@ -66,6 +78,7 @@ const EditUserPage = () => {
 									<input
 										type="email"
 										value={email}
+										onChange={handleEmailChange}
 										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 										placeholder="name@company.com"
 										required={true}
@@ -81,8 +94,9 @@ const EditUserPage = () => {
 									<input
 										type="text"
 										value={occupation}
+										onChange={handleOccupationChange}
 										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-										placeholder="name@company.com"
+										placeholder="Developer"
 										required={true}
 									/>
 								</div>
@@ -96,8 +110,9 @@ const EditUserPage = () => {
 									<textarea
 										value={bio}
 										rows={4}
+										onChange={handleBioChange}
 										className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-										placeholder="name@company.com"
+										placeholder="User's biography"
 										required={true}
 									/>
 								</div>
