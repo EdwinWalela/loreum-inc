@@ -8,6 +8,7 @@ const EditUserPage = () => {
 	const { id } = useParams();
 	const dispatch = useAppDispatch();
 	const state = useAppSelector((state) => state.editUser);
+	const [updated, setUpdated] = useState(false);
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [occupation, setOccupation] = useState('');
@@ -31,16 +32,31 @@ const EditUserPage = () => {
 	}
 
 	function handleNameChange(e: React.FormEvent<HTMLInputElement>) {
+		if (!updated) {
+			setUpdated(true);
+		}
 		setName(e.currentTarget.value);
 	}
 	function handleEmailChange(e: React.FormEvent<HTMLInputElement>) {
+		if (!updated) {
+			setUpdated(true);
+		}
 		setEmail(e.currentTarget.value);
 	}
 	function handleOccupationChange(e: React.FormEvent<HTMLInputElement>) {
+		if (!updated) {
+			setUpdated(true);
+		}
 		setOccupation(e.currentTarget.value);
 	}
 	function handleBioChange(e: React.FormEvent<HTMLTextAreaElement>) {
+		if (!updated) {
+			setUpdated(true);
+		}
 		setBio(e.currentTarget.value);
+	}
+	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+		e.preventDefault();
 	}
 
 	return (
@@ -51,7 +67,11 @@ const EditUserPage = () => {
 						{state.isLoading ? (
 							<Loader />
 						) : (
-							<form className="space-y-4 md:space-y-6 transition-all ease-linear" action="#">
+							<form
+								className="space-y-4 md:space-y-6 transition-all ease-linear"
+								action="#"
+								onSubmit={handleSubmit}
+							>
 								<div>
 									<label
 										htmlFor="email"
@@ -116,12 +136,14 @@ const EditUserPage = () => {
 										required={true}
 									/>
 								</div>
-								<button
-									type="submit"
-									className="w-full bg-blue-500 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-								>
-									Save Changes
-								</button>
+								{updated && (
+									<button
+										type="submit"
+										className="w-full bg-blue-500 transition-all ease-in-out text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+									>
+										Save Changes
+									</button>
+								)}
 							</form>
 						)}
 					</div>
