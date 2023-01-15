@@ -1,7 +1,10 @@
 # Loreum Inc
 
-HR management dashboard for a fictional organization. Design Inspiration -
-[Dribbble](https://dribbble.com/shots/14135589-User-Management-Table)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/04420842-75c5-4f8a-98e1-c67c7a41728e/deploy-status)](https://app.netlify.com/sites/loquacious-druid-4b50bd/deploys)
+
+HR management dashboard for a fictional organization.
+
+Design Inspiration - [Dribbble](https://dribbble.com/shots/14135589-User-Management-Table)
 
 ## Tech Stack
 

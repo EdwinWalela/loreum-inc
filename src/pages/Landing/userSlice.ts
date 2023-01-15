@@ -68,7 +68,6 @@ export const userSlice = createSlice({
 		builder.addCase(getAllUsers.rejected, (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
-			console.log(action.payload);
 			state.errorMessage = String(action.payload);
 			state.users = [];
 		});
