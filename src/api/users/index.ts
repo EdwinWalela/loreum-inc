@@ -39,7 +39,7 @@ const getUserById = async (id: string): Promise<User> => {
 	}
 };
 
-const editUser = async (id: string, user: User) => {
+const updateUser = async (user: User) => {
 	try {
 		let body = {
 			name: user.name,
@@ -47,7 +47,9 @@ const editUser = async (id: string, user: User) => {
 			occupation: user.occupation,
 			bio: user.bio,
 		};
-		const response = await axios.patch(`${BASE_URL}/${id}`, { headers: { 'x-apikey': API_KEY } });
+		const response = await axios.patch(`${BASE_URL}/${user.id}`, body, {
+			headers: { 'x-apikey': API_KEY },
+		});
 		return response.data;
 	} catch (error: any) {
 		throw new Error(`Failed to update user: ${error.message}`);
@@ -57,5 +59,5 @@ const editUser = async (id: string, user: User) => {
 export default {
 	getAllUsers,
 	getUserById,
-	editUser,
+	updateUser,
 };

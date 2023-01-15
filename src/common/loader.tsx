@@ -1,4 +1,4 @@
-const Loader = () => {
+const Loader = (props?: { message: string }) => {
 	return (
 		<div role="status">
 			<svg
@@ -17,7 +17,9 @@ const Loader = () => {
 					fill="currentFill"
 				/>
 			</svg>
-			<h1 className="text-center mt-6 text-gray-500">Fetching data...</h1>
+			<h1 className="text-center mt-6 text-gray-500">
+				{props?.message ? props?.message : 'Fetching data...'}
+			</h1>
 		</div>
 	);
 };
