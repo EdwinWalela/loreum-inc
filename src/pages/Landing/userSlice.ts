@@ -7,6 +7,7 @@ interface userState {
 	isLoading: Boolean;
 	hasError: Boolean;
 	errorMessage: string;
+	profileModalOpen: Boolean;
 }
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
 	isLoading: false,
 	hasError: false,
 	errorMessage: '',
+	profileModalOpen: false,
 } as userState;
 
 export const getAllUsers = createAsyncThunk('users/all', async (payload, { rejectWithValue }) => {
@@ -40,6 +42,12 @@ export const userSlice = createSlice({
 				}),
 			};
 		},
+		toggleProfileModal: (state) => {
+			return {
+				...state,
+				profileModalOpen: !state.profileModalOpen,
+			};
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getAllUsers.pending, (state, action) => {
@@ -61,5 +69,5 @@ export const userSlice = createSlice({
 	},
 });
 
-export const { searchUsers } = userSlice.actions;
+export const { searchUsers, toggleProfileModal } = userSlice.actions;
 export default userSlice.reducer;
