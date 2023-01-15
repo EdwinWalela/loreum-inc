@@ -6,6 +6,20 @@ HR management dashboard for a fictional organization.
 
 Design Inspiration - [Dribbble](https://dribbble.com/shots/14135589-User-Management-Table)
 
+## Responsive Design
+
+### Desktop
+
+<img src="./docs/landing.png" width=500 style="display:inline"/>
+
+<br/>
+
+### Mobile
+
+<img src="./docs/landing-mobile.png" width=200/>
+
+<br/>
+
 ## Tech Stack
 
 - ReactJS (Vite + Typescript)
