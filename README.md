@@ -8,15 +8,7 @@ Design Inspiration - [Dribbble](https://dribbble.com/shots/14135589-User-Managem
 
 ## Responsive Design
 
-### Desktop
-
-<img src="./docs/landing.png" width=500 style="display:inline"/>
-
-<br/>
-
-### Mobile
-
-<img src="./docs/landing-mobile.png" width=200/>
+<img src="./docs/landing.png" width=1200 style="display:inline"/>
 
 <br/>
 
