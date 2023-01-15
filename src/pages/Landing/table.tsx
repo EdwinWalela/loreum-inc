@@ -22,13 +22,13 @@ const Table = () => {
 				<table className="md:w-11/12 md:mx-auto mx-5  my-8 mb-16  text-left shadow-md ">
 					<TableHeader />
 				</table>
-				<Loader />
+				<Loader message="" />
 			</>
 		);
 	} else {
 		return (
 			<>
-				<table className="md:w-11/12 md:mx-auto mx-5  my-8 mb-16  text-left shadow-md ">
+				<table className="md:w-11/12 md:mx-auto  mx-5  my-8 mb-16  text-left shadow-md ">
 					<TableHeader />
 					<tbody>
 						{state.users.map((user: User, i: number) => (

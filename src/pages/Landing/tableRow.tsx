@@ -10,7 +10,7 @@ const TableRow = (props: { user: User }) => {
 			<td className="w-1/4 px-6 py-2 text-sm md:text-md">{props.user.name}</td>
 			<td className="w-1/4 px-6 py-2 text-sm md:text-md">{props.user.email}</td>
 			<td className="w-1/4 px-6 py-2 text-sm md:text-md">{props.user.occupation}</td>
-			<td className="w-1/11 px-6 py-2 text-sm md:text-md">
+			<td className="w-1/11 px-6 py-2 text-sm max-w-xs md:text-md">
 				<a href={`mailto:${props.user.email}`}>
 					<img src={mailIcon} className="w-5 h-4 inline-block mr-4 cursor-pointer" />
 				</a>
