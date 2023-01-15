@@ -79,6 +79,7 @@ const EditUserPage = () => {
 							<Loader message="Loading" />
 						) : (
 							<>
+								{state.hasError && <Modal isSuccess={false} />}
 								{state.updateSuccess && <Modal isSuccess={true} />}
 								<form
 									className="space-y-4 md:space-y-6 transition-all ease-linear"
