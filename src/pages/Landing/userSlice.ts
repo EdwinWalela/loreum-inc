@@ -19,11 +19,13 @@ const initialState = {
 } as userState;
 
 export const getAllUsers = createAsyncThunk('users/all', async (payload, { rejectWithValue }) => {
+	let users;
 	try {
-		return api.getAllUsers();
+		users = api.getAllUsers();
 	} catch (error: any) {
 		return rejectWithValue(error.message);
 	}
+	return users;
 });
 
 export const userSlice = createSlice({
@@ -68,7 +70,7 @@ export const userSlice = createSlice({
 		builder.addCase(getAllUsers.rejected, (state, action) => {
 			state.isLoading = false;
 			state.hasError = true;
-			state.errorMessage = String(action.payload);
+			state.errorMessage = String(action.error.message);
 			state.users = [];
 		});
 	},

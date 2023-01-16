@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { useEffect } from 'react';
 import { getAllUsers } from './userSlice';
 import Loader from '../../common/loader';
+import Modal from './modal';
 
 const Table = () => {
 	const dispatch = useAppDispatch();
@@ -28,6 +29,7 @@ const Table = () => {
 	} else {
 		return (
 			<>
+				{state.hasError && <Modal isSuccess={false} message={state.errorMessage} />}
 				<table className="md:w-11/12 md:mx-auto  mx-5  my-8 mb-16  text-left shadow-md ">
 					<TableHeader />
 					<tbody>
