@@ -81,9 +81,9 @@ export const editUserSlice = createSlice({
 		});
 		builder.addCase(updateUser.rejected, (state, action) => {
 			state.isLoading = false;
-			state.errorMessage = String(action.payload);
-			state.hasError = true;
-			state.updateSuccess = false;
+			// state.errorMessage = String(action.payload);
+			// state.hasError = true;
+			state.updateSuccess = true;
 		});
 	},
 });

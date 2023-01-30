@@ -7,9 +7,9 @@ const getAllUsers = async (): Promise<User[]> => {
 	let users: User[] = [];
 	try {
 		const response = await axios.get(BASE_URL, { headers: { 'x-apikey': API_KEY } });
-		for (const data of response.data) {
+		for (const data of response.data.users) {
 			let user: User = {
-				id: data._id,
+				id: data.id,
 				name: data.name,
 				email: data.email,
 				occupation: data.occupation,
@@ -27,12 +27,13 @@ const getUserById = async (id: string): Promise<User> => {
 	try {
 		const response = await axios.get(`${BASE_URL}/${id}`, { headers: { 'x-apikey': API_KEY } });
 		let user: User = {
-			id: response.data._id,
-			name: response.data.name,
-			email: response.data.email,
-			occupation: response.data.occupation,
-			bio: response.data.bio,
+			id: response.data.user.id,
+			name: response.data.user.name,
+			email: response.data.user.email,
+			occupation: response.data.user.occupation,
+			bio: response.data.user.bio,
 		};
+		console.log(user);
 		return user;
 	} catch (error: any) {
 		throw new Error(`Failed to fetch user: ${error.message}`);
